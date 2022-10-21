@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 public class Flower {
     @Getter
-    protected double sepalLength;
-    protected FlowerColor color;
+    private double sepalLength;
+    private FlowerColor color;
     @Getter
-    protected double price;
+    private double price;
     @Getter
     private FlowerType flowerType;
 

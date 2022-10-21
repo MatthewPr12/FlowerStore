@@ -2,18 +2,17 @@ package flower.store;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Flow;
 
 public class FlowerBucket {
-    List<FlowerPack> flowers = new ArrayList<FlowerPack>();
+    private final List<FlowerPack> flowers = new ArrayList<>();
 
-    public void add(FlowerPack fp){
+    public void add(FlowerPack fp) {
         flowers.add(fp);
     }
 
     public double getPrice() {
         double res = 0;
-        for(FlowerPack i: flowers){
+        for(FlowerPack i: flowers) {
             res += i.getPrice();
         }
         return res;

@@ -2,9 +2,9 @@ package flower.store;
 
 
 public class FlowerPack {
-    final private Flower flower;
-    final private int quantity;
-    public FlowerPack(Flower fl, int qua){
+    private final Flower flower;
+    private final int quantity;
+    public FlowerPack(Flower fl, int qua) {
         this.flower = fl;
         this.quantity = qua;
     }

@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Setter
-public class Rose extends Flower{
+public class Rose extends Flower {
     @Getter
     private double sepalLength;
     private FlowerColor color;

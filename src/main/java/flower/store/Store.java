@@ -7,23 +7,23 @@ public class Store {
     private static final Random PRICE_GENERATOR = new Random();
     private static final Random COLOR_GENERATOR = new Random();
     private static final Random FLOWER_SELECTOR = new Random();
-
+    public static final int MAX_NUM_FLOWERS = 100;
+    public static final double SEPAL_LENGTH = 12;
+    public static final double BUDGET = 123.123;
+    private static final double MAX_FLOWER_PRICE = 100;
     public Store() {
         fillStock();
     }
 
     private void fillStock() {
-        int maxNumOfFlowers = 100;
-        double standardSepal = 12;
-        for (int i = 0; i < maxNumOfFlowers; ++i) {
+        for (int i = 0; i < MAX_NUM_FLOWERS; ++i) {
             Flower flower = FlowerSelect.selectFlower(FLOWER_SELECTOR
                     .nextInt(FlowerSelect.numOfFlowerTypes));
-            int maxPrice = 100;
-            flower.setPrice(PRICE_GENERATOR.nextInt(maxPrice));
+            flower.setPrice(PRICE_GENERATOR.nextDouble(MAX_FLOWER_PRICE));
             flower.setColor(FlowerColor
                     .chooseColor(COLOR_GENERATOR
                             .nextInt(FlowerSelect.numOfFlowerTypes)));
-            flower.setSepalLength(standardSepal);
+            flower.setSepalLength(SEPAL_LENGTH);
             stock.add(flower);
         }
     }
@@ -65,9 +65,8 @@ public class Store {
 
 
     public static void main(String[] args) {
-        double myBudget = 123.123;
         Store myStore = new Store();
-        List<Flower> res =  myStore.search(myBudget);
+        List<Flower> res =  myStore.search(BUDGET);
         System.out.println(res);
     }
 

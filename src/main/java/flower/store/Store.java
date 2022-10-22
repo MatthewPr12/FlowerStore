@@ -1,7 +1,8 @@
 package flower.store;
-//CHECKSTYLE:OFF
-import java.util.*;
-//CHECKSTYLE:ON
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Comparator;
 public class Store {
     private final List<Flower> stock = new ArrayList<>();
     private static final Random PRICE_GENERATOR = new Random();

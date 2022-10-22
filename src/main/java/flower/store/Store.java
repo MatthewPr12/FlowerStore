@@ -4,61 +4,69 @@ import java.util.*;
 
 public class Store {
     private final List<Flower> stock = new ArrayList<>();
-    private static final Random PRICE_GENERATOR = new Random();
-    private static final Random COLOR_GENERATOR = new Random();
-    private static final Random FLOWER_SELECTOR = new Random();
+    private final static Random PRICE_GENERATOR = new Random();
+    private final static Random COLOR_GENERATOR = new Random();
+    private final static Random FLOWER_SELECTOR = new Random();
 
     public Store(){
         fillStock();
     }
 
     private void fillStock() {
-        for(int i=0; i<100; ++i){
-            Flower flower = FlowerSelect.selectFlower(FLOWER_SELECTOR.nextInt(FlowerSelect.numOfFlowerTypes));
+        int maxNumOfFlowers = 100;
+        double standardSepal = 12;
+        for (int i = 0; i < maxNumOfFlowers; ++i) {
+            Flower flower = FlowerSelect.selectFlower(FLOWER_SELECTOR
+                    .nextInt(FlowerSelect.numOfFlowerTypes));
             int maxPrice = 100;
             flower.setPrice(PRICE_GENERATOR.nextInt(maxPrice));
-            flower.setColor(FlowerColor.chooseColor(COLOR_GENERATOR.nextInt(FlowerSelect.numOfFlowerTypes)));
-            flower.setSepalLength(12);
+            flower.setColor(FlowerColor
+                    .chooseColor(COLOR_GENERATOR.nextInt(FlowerSelect.numOfFlowerTypes)));
+            flower.setSepalLength(standardSepal);
             stock.add(flower);
         }
     }
 
-    public final List<Flower> takeBestThree(int gSum) {
-        double result_sum = stock.get(0).getPrice() + stock.get(1).getPrice() + stock.get(stock.size() - 1).getPrice();
-        List<Flower> result_bucket = new ArrayList<>();
-        result_bucket.add(stock.get(0));
-        result_bucket.add(stock.get(1));
-        result_bucket.add(stock.get(stock.size()-1));
-        result_bucket.sort((Comparator.comparing(o -> o.getPrice())));
+    public final List<Flower> search(double gSum) {
+        double resultSum = stock.get(0).getPrice()
+                + stock.get(1).getPrice()
+                + stock.get(stock.size() - 1).getPrice();
+        List<Flower> resultBucket = new ArrayList<>();
+        resultBucket.add(stock.get(0));
+        resultBucket.add(stock.get(1));
+        resultBucket.add(stock.get(stock.size()-1));
+        resultBucket.sort((Comparator.comparing(Flower::getPrice)));
 
-        for(int i=0; i<stock.size()-2; i++){
-            int a_pointer = i+1;
-            int b_pointer = stock.size() - 1;
-            while( a_pointer<b_pointer){
-                double current_sum = stock.get(i).getPrice() + stock.get(a_pointer).getPrice()
-                        + stock.get(b_pointer).getPrice();
-                if (current_sum > gSum){
-                    b_pointer -= 1;
-                } else{
-                    a_pointer += 1;
+        for (int i = 0; i < stock.size()-2; i++) {
+            int aPointer = i+1;
+            int bPointer = stock.size() - 1;
+            while (aPointer < bPointer) {
+                double currentSum = stock.get(i).getPrice()
+                        + stock.get(aPointer).getPrice()
+                        + stock.get(bPointer).getPrice();
+                if (currentSum > gSum) {
+                    bPointer -= 1;
+                } else {
+                    aPointer += 1;
                 }
 
-                if(Math.abs(current_sum-gSum)<Math.abs(result_sum-gSum)){
-                    result_sum = current_sum;
-                    result_bucket.clear();
-                    result_bucket.add(stock.get(i));
-                    result_bucket.add(stock.get(a_pointer));
-                    result_bucket.add(stock.get(b_pointer));
+                if (Math.abs(currentSum-gSum) < Math.abs(resultSum-gSum)) {
+                    resultSum = currentSum;
+                    resultBucket.clear();
+                    resultBucket.add(stock.get(i));
+                    resultBucket.add(stock.get(aPointer));
+                    resultBucket.add(stock.get(bPointer));
                 }
             }
         }
-        return result_bucket;
+        return resultBucket;
     }
 
 
     public static void main(String[] args) {
-        Store my_store = new Store();
-        List<Flower> res =  my_store.takeBestThree(123);
+        double myBudget = 123.123;
+        Store myStore = new Store();
+        List<Flower> res =  myStore.search(myBudget);
         System.out.println(res);
     }
 

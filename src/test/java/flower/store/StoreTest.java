@@ -16,14 +16,19 @@ class StoreTest {
     }
 
     @Test
-    void takeBestThree() {
-        List<Flower> res = store.takeBestThree(123);
-        double res_sum = 0;
-        for(Flower i : res)res_sum+=i.getPrice();
-        Assertions.assertTrue(res_sum>=0);
-        Assertions.assertTrue(res_sum<=300);
+    void search() {
+        double buyerBudget = 123.123;
+        List<Flower> res = store.search(buyerBudget);
+        double resSum = 0;
+        for (Flower i : res) {
+            resSum += i.getPrice();
+        }
+        int sumNotNeg = 0;
+        int allFlowersLessHundred = 300;
+        Assertions.assertTrue(resSum >= sumNotNeg);
+        Assertions.assertTrue(resSum <= allFlowersLessHundred);
         Assertions.assertEquals(res.size(), 3);
-        List<Flower> dummy_bucket = store.takeBestThree(123);
-        Assertions.assertEquals(dummy_bucket, res);
+        List<Flower> dummyBucket = store.search(buyerBudget);
+        Assertions.assertEquals(dummyBucket, res);
     }
 }

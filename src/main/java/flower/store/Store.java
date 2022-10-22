@@ -1,14 +1,14 @@
 package flower.store;
 
 import java.util.*;
-
+/*eslint no-magic-numbers: "error"*/
 public class Store {
     private final List<Flower> stock = new ArrayList<>();
-    private final static Random PRICE_GENERATOR = new Random();
-    private final static Random COLOR_GENERATOR = new Random();
-    private final static Random FLOWER_SELECTOR = new Random();
+    private static final Random PRICE_GENERATOR = new Random();
+    private static final Random COLOR_GENERATOR = new Random();
+    private static final Random FLOWER_SELECTOR = new Random();
 
-    public Store(){
+    public Store() {
         fillStock();
     }
 
@@ -21,7 +21,8 @@ public class Store {
             int maxPrice = 100;
             flower.setPrice(PRICE_GENERATOR.nextInt(maxPrice));
             flower.setColor(FlowerColor
-                    .chooseColor(COLOR_GENERATOR.nextInt(FlowerSelect.numOfFlowerTypes)));
+                    .chooseColor(COLOR_GENERATOR
+                            .nextInt(FlowerSelect.numOfFlowerTypes)));
             flower.setSepalLength(standardSepal);
             stock.add(flower);
         }

@@ -14,4 +14,12 @@ public class Rose extends Flower {
     private FlowerType flowerType;
 
 
+    @Override
+    public String toString() {
+        return "Rose{"
+                + "sepalLength=" + sepalLength
+                + ", color=" + color
+                + ", price=" + price
+                + '}';
+    }
 }

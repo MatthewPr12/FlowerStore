@@ -12,4 +12,13 @@ public class Tulip extends Flower {
     private double price;
     @Getter
     private FlowerType flowerType;
+
+    @Override
+    public String toString() {
+        return "Tulip{"
+                + "sepalLength=" + sepalLength
+                + ", color=" + color
+                + ", price=" + price
+                + '}';
+    }
 }

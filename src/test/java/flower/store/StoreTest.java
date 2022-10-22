@@ -9,7 +9,8 @@ import java.util.List;
 
 class StoreTest {
     private Store store;
-    private static final double MAX_FLOWER_PRICE = 100;
+    private static final int BUCKET_SIZE = 3;
+    private static final double MAX_FLOWER_PRICE = 300;
     private static final double NON_NEG = 0;
 
     @BeforeEach
@@ -25,8 +26,8 @@ class StoreTest {
             resSum += i.getPrice();
         }
         Assertions.assertTrue(resSum >= NON_NEG);
-        Assertions.assertTrue(resSum <= MAX_FLOWER_PRICE * 3);
-        Assertions.assertEquals(res.size(), 3);
+        Assertions.assertTrue(resSum <= MAX_FLOWER_PRICE);
+        Assertions.assertEquals(res.size(), BUCKET_SIZE);
         List<Flower> dummyBucket = store.search(Store.BUDGET);
         Assertions.assertEquals(dummyBucket, res);
     }

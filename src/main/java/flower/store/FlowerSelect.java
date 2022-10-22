@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public class FlowerSelect {
     @Getter
-    private static final int numOfFlowerTypes = 3;
+    private static final int NUM_OF_FLOWER_TYPES = 3;
 
     public static Flower selectFlower(int channel) {
         return switch (channel) {

@@ -1,7 +1,7 @@
 package flower.store;
-
+//CHECKSTYLE:OFF
 import java.util.*;
-/*eslint no-magic-numbers: "error"*/
+//CHECKSTYLE:ON
 public class Store {
     private final List<Flower> stock = new ArrayList<>();
     private static final Random PRICE_GENERATOR = new Random();

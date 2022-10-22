@@ -14,6 +14,14 @@ public enum FlowerColor {
         this.stringRepresentation = stringRepresentation;
     }
 
+    public static FlowerColor chooseColor(int n){
+        if (n%3==0) {
+            return RED;
+        }
+        else if(n%3==1) return BLUE;
+        else return VIOLET;
+    }
+
     @Override
     public String toString() {
         return stringRepresentation;

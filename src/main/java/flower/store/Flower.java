@@ -21,10 +21,10 @@ public class Flower {
 
     @Override
     public String toString() {
-        return "Flower{" +
-                "sepalLength=" + sepalLength +
-                ", color=" + color +
-                ", price=" + price +
-                '}';
+        return "Flower{"
+                + "sepalLength=" + sepalLength
+                + ", color=" + color
+                + ", price=" + price
+                + '}';
     }
 }

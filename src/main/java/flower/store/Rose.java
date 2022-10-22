@@ -16,10 +16,10 @@ public class Rose extends Flower {
 
     @Override
     public String toString() {
-        return "Rose{" +
-                "sepalLength=" + sepalLength +
-                ", color=" + color +
-                ", price=" + price +
-                '}';
+        return "Rose{"
+                + "sepalLength=" + sepalLength
+                + ", color=" + color
+                + ", price=" + price
+                + '}';
     }
 }

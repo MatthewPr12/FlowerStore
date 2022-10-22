@@ -15,10 +15,10 @@ public class Chamomile extends  Flower {
 
     @Override
     public String toString() {
-        return "Chamomile{" +
-                "sepalLength=" + sepalLength +
-                ", color=" + color +
-                ", price=" + price +
-                '}';
+        return "Chamomile{"
+                + "sepalLength=" + sepalLength
+                + ", color=" + color
+                + ", price=" + price
+                + '}';
     }
 }

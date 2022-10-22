@@ -15,10 +15,10 @@ public class Tulip extends Flower {
 
     @Override
     public String toString() {
-        return "Tulip{" +
-                "sepalLength=" + sepalLength +
-                ", color=" + color +
-                ", price=" + price +
-                '}';
+        return "Tulip{"
+                + "sepalLength=" + sepalLength
+                + ", color=" + color
+                + ", price=" + price
+                + '}';
     }
 }

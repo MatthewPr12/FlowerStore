@@ -8,10 +8,10 @@ import java.util.List;
 
 
 class StoreTest {
-    private Store store;
     private static final int BUCKET_SIZE = 3;
     private static final double MAX_FLOWER_PRICE = 300;
     private static final double NON_NEG = 0;
+    private Store store;
 
     @BeforeEach
     public void init() {

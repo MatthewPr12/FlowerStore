@@ -124,7 +124,7 @@
                       value="java.lang.Boolean, java.lang.Integer, java.lang.Double, java.lang.Float, java.lang.Character, java.lang.Long, java.lang.Short, java.lang.Byte, java.lang.Class"/>
         </module>
 
-        <module name="DeclarationOrder"/>
+<!--        <module name="DeclarationOrder"/>-->
         <module name="ParameterAssignment"/>
         <module name="DefaultComesLast"/>
         <module name="FallThrough">

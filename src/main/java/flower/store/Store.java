@@ -8,7 +8,7 @@ public class Store {
     private static final Random PRICE_GENERATOR = new Random();
     private static final Random COLOR_GENERATOR = new Random();
     private static final Random FLOWER_SELECTOR = new Random();
-    private static final double MAX_FLOWER_PRICE = 100;
+    private static final int MAX_FLOWER_PRICE = 100;
     public static final int MAX_NUM_FLOWERS = 100;
     public static final double SEPAL_LENGTH = 12;
     public static final double BUDGET = 123.123;
@@ -20,7 +20,7 @@ public class Store {
         for (int i = 0; i < MAX_NUM_FLOWERS; ++i) {
             Flower flower = FlowerSelect.selectFlower(FLOWER_SELECTOR
                     .nextInt(FlowerSelect.getNUM_OF_FLOWER_TYPES()));
-            flower.setPrice(PRICE_GENERATOR.nextDouble(MAX_FLOWER_PRICE));
+            flower.setPrice(PRICE_GENERATOR.nextInt(MAX_FLOWER_PRICE));
             flower.setColor(FlowerColor
                     .chooseColor(COLOR_GENERATOR
                             .nextInt(FlowerSelect.getNUM_OF_FLOWER_TYPES())));

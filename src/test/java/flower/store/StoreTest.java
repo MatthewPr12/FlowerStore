@@ -9,6 +9,8 @@ import java.util.List;
 
 class StoreTest {
     private Store store;
+    private static final double MAX_FLOWER_PRICE = 100;
+    private static final double NON_NEG = 0;
 
     @BeforeEach
     public void init() {
@@ -17,18 +19,15 @@ class StoreTest {
 
     @Test
     void search() {
-        double buyerBudget = 123.123;
-        List<Flower> res = store.search(buyerBudget);
+        List<Flower> res = store.search(Store.BUDGET);
         double resSum = 0;
         for (Flower i : res) {
             resSum += i.getPrice();
         }
-        int sumNotNeg = 0;
-        int allFlowersLessHundred = 300;
-        Assertions.assertTrue(resSum >= sumNotNeg);
-        Assertions.assertTrue(resSum <= allFlowersLessHundred);
+        Assertions.assertTrue(resSum >= NON_NEG);
+        Assertions.assertTrue(resSum <= MAX_FLOWER_PRICE * 3);
         Assertions.assertEquals(res.size(), 3);
-        List<Flower> dummyBucket = store.search(buyerBudget);
+        List<Flower> dummyBucket = store.search(Store.BUDGET);
         Assertions.assertEquals(dummyBucket, res);
     }
 }

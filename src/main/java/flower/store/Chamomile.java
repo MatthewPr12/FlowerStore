@@ -12,4 +12,13 @@ public class Chamomile extends  Flower {
     private double price;
     @Getter
     private FlowerType flowerType;
+
+    @Override
+    public String toString() {
+        return "Chamomile{" +
+                "sepalLength=" + sepalLength +
+                ", color=" + color +
+                ", price=" + price +
+                '}';
+    }
 }

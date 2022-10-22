@@ -18,4 +18,13 @@ public class Flower {
     public String getColor() {
         return color.toString();
     }
+
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "sepalLength=" + sepalLength +
+                ", color=" + color +
+                ", price=" + price +
+                '}';
+    }
 }
